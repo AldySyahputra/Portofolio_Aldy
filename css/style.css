@@ -2123,7 +2123,7 @@ figure.dotted-bg:before {
 
 /* style.css */
 .img-small {
-  width: 350px; /* Atur ukuran sesuai kebutuhan Anda */
+  width: 200px; /* Atur ukuran sesuai kebutuhan Anda */
   height: auto; /* Menjaga rasio aspek gambar */
 }
 
