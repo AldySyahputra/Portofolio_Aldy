@@ -259,37 +259,6 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <form id="contactForm" action="send_email.php" method="POST">
-              <div class="row">
-                <div class="col-lg-6 form-group">
-                  <input type="text" class="form-control" name="firstname" placeholder="Nama Depan" required />
-                </div>
-                <div class="col-lg-6 form-group">
-                  <input type="text" class="form-control" name="lastname" placeholder="Nama Belakang" required />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Alamat Email Anda" required />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 form-group">
-                  <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Tulis pesan Anda..." required></textarea>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12 form-group">
-                  <input type="submit" class="btn btn-black" value="Kirim Pesan" />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="site-footer">
       <div class="container">
@@ -421,31 +390,8 @@
 
     <script src="js/custom.js"></script>
 
-    <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        var formData = new FormData(this);
-        
-        fetch('send_email.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-          if (data.includes('berhasil')) {
-            alert('Pesan berhasil dikirim!');
-            this.reset();
-          } else {
-            alert('Terjadi kesalahan. Silakan coba lagi.');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Terjadi kesalahan. Silakan coba lagi.');
-        });
-      });
-      </script>
+</body>
+</html>
     
   </body>
 </html>
