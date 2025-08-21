@@ -88,7 +88,7 @@ h3,
 h4,
 .h4 {
   font-family: 'Montserrat', sans-serif;
-  color: #dddde6;
+  color: #000000; /* Mengubah warna default heading menjadi hitam */
 }
 
 .btn {
@@ -261,8 +261,9 @@ h4,
 
 .logo {
   font-size: 24px;
-  color: #ffffff;
+  color: #ffffff; /* Mengubah warna logo menjadi putih agar terlihat di navigasi gelap */
   font-weight: 700;
+  top: 100px;
 }
 .logo:hover {
   color: #ffffff;
@@ -272,6 +273,14 @@ h4,
   position: absolute;
   width: 100%;
   z-index: 7;
+  background: none; /* Mengembalikan latar belakang menjadi transparan */
+  border-radius: 0; /* Menghilangkan sudut membulat */
+  padding-top: 20px; /* Mengembalikan padding default */
+  padding-bottom: 20px; /* Mengembalikan padding default */
+  max-width: none; /* Menghilangkan max-width */
+  margin: 0; /* Menghilangkan margin */
+  left: auto;
+  transform: none;
 }
 .site-nav a {
   position: relative;
@@ -283,28 +292,37 @@ h4,
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.site-nav h1 {
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
+.site-nav .site-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.site-nav .site-navigation .navbar-brand {
+  margin-right: 20px; /* Memberikan sedikit ruang antara brand dan menu */
 }
 .site-nav .site-navigation .site-menu {
   margin-bottom: 0;
+  text-align: center;
+  flex-grow: 1; /* Memungkinkan menu untuk mengambil ruang yang tersedia */
 }
 .site-nav .site-navigation .site-menu > li {
   display: inline-block;
 }
 .site-nav .site-navigation .site-menu > li > a {
   font-size: 14px;
-  padding: 10px 15px;
+  padding: 10px 15px; /* Mengembalikan padding default */
   display: inline-block;
   text-decoration: none !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5); /* Mengembalikan warna teks tautan default */
   position: relative;
   font-weight: 700;
+  border-radius: 0; /* Menghilangkan sudut membulat */
+  margin: 0; /* Menghilangkan margin */
 }
 .site-nav .site-navigation .site-menu > li > a:hover {
-  color: #ffffff;
+  color: #0389ff; /* Mengubah warna hover menjadi primary */
+  background-color: transparent;
 }
 .site-nav .site-navigation .site-menu > li.cta-button a {
   padding: 5px 22px;
@@ -312,27 +330,28 @@ h4,
   color: #000000;
   border-radius: 30px;
 }
-.site-nav .site-navigation .site-menu > li.cta-button a:hover {
+.site-nav .container .site-navigation .site-menu > li.cta-button a:hover {
   color: #ffffff;
   background: #ffffff;
   border-color: #ffffff;
 }
-.site-nav .site-navigation .site-menu > li.cta-button.active a {
+.site-nav .container .site-navigation .site-menu > li.cta-button.active a {
   color: #000000;
   background: #ffffff;
   border-color: #ffffff;
 }
-.site-nav .site-navigation .site-menu > li.active > a {
-  color: #ffffff;
+.site-nav .container .site-navigation .site-menu > li.active > a {
+  color: #0389ff; /* Mengubah warna aktif menjadi primary */
+  background-color: transparent;
 }
-.site-nav .site-navigation .site-menu .has-children {
+.site-nav .container .site-navigation .site-menu .has-children {
   position: relative;
 }
-.site-nav .site-navigation .site-menu .has-children > a {
+.site-nav .container .site-navigation .site-menu .has-children > a {
   position: relative;
   padding-right: 20px;
 }
-.site-nav .site-navigation .site-menu .has-children > a:before {
+.site-nav .container .site-navigation .site-menu .has-children > a:before {
   position: absolute;
   content: '\e313';
   font-size: 14px;
@@ -343,7 +362,7 @@ h4,
   transform: translateY(-50%);
   font-family: 'icomoon';
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown {
   visibility: hidden;
   opacity: 0;
   top: 100%;
@@ -360,10 +379,10 @@ h4,
   -o-transition: 0.2s 0s;
   transition: 0.2s 0s;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown.arrow-top {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown.arrow-top {
   position: absolute;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
   display: none;
   bottom: 100%;
   left: 20%;
@@ -374,14 +393,14 @@ h4,
   position: absolute;
   pointer-events: none;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
   display: none;
   border-color: rgba(136, 183, 213, 0);
   border-bottom-color: #ffffff;
   border-width: 10px;
   margin-left: -10px;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown a {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown a {
   font-size: 14px;
   text-transform: none;
   letter-spacing: normal;
@@ -390,56 +409,57 @@ h4,
   transition: 0s all;
   color: #000000;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown .active {
-  color: #0389ff !important;
+.site-nav .container .site-navigation .site-menu .has-children .dropdown .active,
+.site-nav .container .site-navigation .site-menu .has-children .dropdown a:hover {
+  color: #0389ff !important; /* Mengubah warna aktif/hover dropdown menjadi primary */
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li {
   list-style: none;
   padding: 0;
   margin: 0;
   min-width: 180px;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li > a {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li > a {
   padding: 5px 20px;
   display: block;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li > a:hover {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li > a:hover {
   color: #0389ff;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.active > a {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.active > a {
   color: #0389ff;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > a:before {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children > a:before {
   content: '\e315';
   right: 20px;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown,
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > ul {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown,
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children > ul {
   left: 100%;
   top: 0;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown li a:hover,
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > ul li a:hover {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown li a:hover,
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children > ul li a:hover {
   color: #0389ff;
 }
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a,
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a,
-.site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a {
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a,
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a,
+.site-nav .container .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a {
   color: #0389ff;
 }
-.site-nav .site-navigation .site-menu .has-children:hover > a,
-.site-nav .site-navigation .site-menu .has-children:focus > a,
-.site-nav .site-navigation .site-menu .has-children:active > a {
-  color: #ffffff;
+.site-nav .container .site-navigation .site-menu .has-children:hover > a,
+.site-nav .container .site-navigation .site-menu .has-children:focus > a,
+.site-nav .container .site-navigation .site-menu .has-children:active > a {
+  color: #0389ff; /* Mengubah warna tautan parent dropdown saat hover/focus/active menjadi primary */
 }
-.site-nav .site-navigation .site-menu .has-children:hover,
-.site-nav .site-navigation .site-menu .has-children:focus,
-.site-nav .site-navigation .site-menu .has-children:active {
+.site-nav .container .site-navigation .site-menu .has-children:hover,
+.site-nav .container .site-navigation .site-menu .has-children:focus,
+.site-nav .container .site-navigation .site-menu .has-children:active {
   cursor: pointer;
 }
-.site-nav .site-navigation .site-menu .has-children:hover > .dropdown,
-.site-nav .site-navigation .site-menu .has-children:focus > .dropdown,
-.site-nav .site-navigation .site-menu .has-children:active > .dropdown {
+.site-nav .container .site-navigation .site-menu .has-children:hover > .dropdown,
+.site-nav .container .site-navigation .site-menu .has-children:focus > .dropdown,
+.site-nav .container .site-navigation .site-menu .has-children:active > .dropdown {
   -webkit-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
@@ -448,26 +468,18 @@ h4,
   opacity: 1;
 }
 .site-nav.dark a {
-  color: #000000;
+  color: #ffffff; /* Memastikan tautan navigasi berwarna putih di nav gelap */
 }
 .site-nav.dark .site-navigation .site-menu > li > a {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5); /* Tautan menu standar */
 }
 .site-nav.dark .site-navigation .site-menu > li > a:hover {
-  color: #000000;
+  color: #0389ff; /* Mengubah warna hover menjadi primary untuk nav gelap */
+  background-color: transparent;
 }
 .site-nav.dark .site-navigation .site-menu > li.active > a {
-  color: #000000;
-}
-.site-nav.dark .site-navigation .site-menu > li.has-children.dropdown:hover > a,
-.site-nav.dark .site-navigation .site-menu > li.has-children.dropdown:focus > a,
-.site-nav.dark .site-navigation .site-menu > li.has-children.dropdown:active > a {
-  color: #0389ff;
-}
-.site-nav.dark .site-navigation .site-menu > li.has-children:hover > a,
-.site-nav.dark .site-navigation .site-menu > li.has-children:focus > a,
-.site-nav.dark .site-navigation .site-menu > li.has-children:active > a {
-  color: #000000;
+  color: #0389ff; /* Mengubah warna aktif menjadi primary untuk nav gelap */
+  background-color: transparent;
 }
 
 .site-mobile-menu-close {
@@ -511,7 +523,8 @@ h4,
   right: 0;
   z-index: 2000;
   padding-top: 20px;
-  background: #ffffff;
+  background: #1a1a1a; /* Warna latar belakang gelap */
+  border-radius: 10px; /* Sudut membulat */
   height: calc(100vh);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -581,18 +594,18 @@ h4,
   padding: 5px 20px;
   display: block;
   position: relative;
-  color: #000000;
+  color: #ffffff; /* Warna teks tautan non-aktif */
 }
 .site-mobile-menu .site-nav-wrap a.active,
 .site-mobile-menu .site-nav-wrap a:hover {
-  color: #0389ff;
+  color: #00ff00; /* Warna hijau untuk tautan aktif/hover */
 }
 .site-mobile-menu .site-nav-wrap li {
   position: relative;
   display: block;
 }
 .site-mobile-menu .site-nav-wrap li.active > a {
-  color: #0389ff;
+  color: #00ff00; /* Pastikan tautan aktif berwarna hijau */
 }
 .site-mobile-menu .site-nav-wrap .arrow-collapse {
   position: absolute;
@@ -745,7 +758,6 @@ h4,
   -webkit-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   -o-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
   transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1),
     -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   -webkit-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
@@ -786,6 +798,7 @@ h4,
 .burger.active:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
+  transform: rotate(45deg); /* Added for compatibility */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5);
   /*for IE*/
 }
@@ -793,6 +806,7 @@ h4,
 .burger.active:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg); /* Added for compatibility */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-5);
   /*for IE*/
 }
@@ -804,17 +818,21 @@ h4,
 .untree_co-section {
   padding: 7rem 0;
 }
+
 .untree_co-section .heading,
 .untree_co-section .subheading {
   color: #000000;
 }
+
 .untree_co-section .heading strong,
 .untree_co-section .subheading strong {
   font-weight: 700;
 }
+
 .untree_co-section .heading {
   font-size: 40px;
 }
+
 .untree_co-section .subheading {
   font-size: 18px;
   font-family: 'PT Mono', monospace;
@@ -1397,11 +1415,21 @@ figure.dotted-bg:before {
   }
 }
 
-.post-entry .thumb {
+.post-entry {
   display: block;
   margin-bottom: 30px;
   overflow: hidden;
   border-radius: 4px;
+  background-color: #ffffff; /* Change background to white */
+  padding: 20px; /* Padding inside the rectangle */
+  border-radius: 8px; /* Slightly rounded corners for the rectangle */
+  margin-bottom: 25px; /* Spacing between project entries */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add black shadow */
+  transform: scale(1); /* Initial scale for animation */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+.post-entry .thumb {
+  display: none; /* Hide the image thumbnail */
 }
 .post-entry .thumb img {
   -webkit-transition: 0.15s all ease;
@@ -1416,18 +1444,25 @@ figure.dotted-bg:before {
 
 .post-entry h3 {
   font-size: 18px;
-  margin-bottom: 0;
+  margin-bottom: 10px; /* Add some space below the title */
   font-weight: 700;
 }
 .post-entry h3 a {
-  color: #000000;
+  color: #000000; /* Change title color to black for white background */
 }
 
 .post-entry .post-meta {
   font-size: 14px;
+  color: #555555; /* Darker color for description text on white background */
+  margin-top: 15px; /* Spacing for the description */
 }
 .post-entry .post-meta a {
-  color: #000000;
+  color: #555555; /* Darker color for links within meta on white background */
+  margin-right: 10px; /* Spacing between icons */
+  font-size: 20px; /* Increase icon size */
+}
+.post-entry .post-meta a:hover {
+  color: #0389ff; /* Hover color for icons */
 }
 
 .lines-wrap {
@@ -1464,7 +1499,7 @@ figure.dotted-bg:before {
 }
 
 #about-section {
-  margin-top: 7rem;
+  padding-top: 100px; /* Menambah padding atas untuk mencegah tumpang tindih dengan navigasi */
 }
 #about-section .container {
   background: #0389ff;
@@ -1474,7 +1509,12 @@ figure.dotted-bg:before {
   padding-right: 50px;
 }
 #about-section .container .author-wrap {
-  margin-top: -150px;
+  /* margin-top: -150px; Menghapus margin-top negatif */
+  text-align: center; /* Memastikan isi di tengah */
+}
+#about-section .container .author-wrap img {
+  margin: 0 auto; /* Memastikan gambar berada di tengah */
+  display: block; /* Memastikan gambar menjadi blok agar margin auto berfungsi */
 }
 
 .grid-item {
@@ -2101,7 +2141,7 @@ figure.dotted-bg:before {
   width: 30px;
   height: 30px;
   position: relative;
-  background: #0389ff;
+  background: #303030; /* Mengubah warna latar belakang menjadi hitam */
   border-radius: 50%;
   color: #ffffff;
 }
@@ -2123,11 +2163,141 @@ figure.dotted-bg:before {
 
 /* style.css */
 .img-small {
-  width: 200px; /* Atur ukuran sesuai kebutuhan Anda */
+  max-width: 150px; /* Atur ukuran maksimum agar tidak terlalu besar di mobile */
   height: auto; /* Menjaga rasio aspek gambar */
+  width: 100%; /* Memastikan gambar menyesuaikan lebar kontainer */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  border-radius: 50%; /* Memastikan gambar bulat */
+}
+
+.img-small:hover {
+  transform: scale(1.05);
+}
+
+.author-wrap img {
+  margin: 0 auto;
 }
 
 .icon-service i {
   font-size: 2.9rem; /* Atur ukuran sesuai kebutuhan Anda */
   margin-top: 15px;
+}
+
+#home-section .heading,
+#home-section .subheading {
+  color: #080808; /* Warna teks lebih terang */
+}
+
+#home-section {
+  background-color: #ffffff; /* Latar belakang gelap */
+}
+
+#home-section .heading {
+  font-size: 40px; /* Ukuran font untuk nama */
+  line-height: 1.2;
+  margin-bottom: 10px; /* Menyesuaikan margin bawah */
+}
+
+#home-section .subheading {
+  font-size: 18px; /* Ukuran font untuk sub-judul */
+  margin-bottom: 25px; /* Menyesuaikan margin bawah */
+}
+
+#home-section .subheading span.text-primary {
+  color: #0389ff; /* Warna biru untuk tautan */
+}
+
+#home-section .social-icons li a {
+  background: #303030; /* Latar belakang ikon sosial */
+  color: rgba(255, 255, 255, 0.5); /* Warna ikon */
+}
+
+#home-section .col-lg-5 .img-wrapper img {
+  border-radius: 0; /* Mengembalikan gambar menjadi kotak */
+  border: none; /* Menghilangkan border */
+}
+
+@media (max-width: 991.98px) {
+  #home-section .col-lg-6 {
+    text-align: left; /* Teks rata kiri di ponsel */
+    width: 55%; /* Sesuaikan lebar untuk teks */
+    float: left;
+  }
+  #home-section .col-lg-5 {
+    width: 45%; /* Sesuaikan lebar untuk gambar */
+    float: right;
+    text-align: right; /* Gambar rata kanan di ponsel */
+    margin-top: 0; /* Menghilangkan margin-top tambahan */
+  }
+  #home-section .col-lg-5 .img-wrapper {
+    max-width: 150px; /* Ukuran maksimum untuk pembungkus gambar yang lebih kecil */
+    margin: 0; /* Hapus margin auto untuk mempertahankan float */
+    display: inline-block; /* Agar bisa float */
+  }
+  #home-section .col-lg-5 .img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+  }
+  #home-section .heading {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  #home-section .subheading {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #home-section .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  /* Menghapus aturan yang mengganggu warna ikon sosial di mobile */
+  .untree_co-section {
+    padding: 4rem 0; /* Mengurangi padding section di mobile */
+  }
+  .service [class*='icon-'] {
+    font-size: 40px; /* Ukuran ikon layanan yang lebih kecil */
+  }
+  .service [class*='icon-'] img {
+    width: 40px; /* Ukuran gambar SVG ikon layanan yang lebih kecil */
+  }
+  .progressbar {
+    margin-top: 20px; /* Menambah margin atas saat menumpuk */
+    margin-bottom: 20px; /* Menambah margin bawah saat menumpuk */
+  }
+  .site-footer .social li a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .site-nav .site-navigation .navbar-brand {
+    display: none;
+  }
+  .site-nav .site-navigation {
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .site-nav .site-navigation .site-menu {
+    text-align: center;
+    padding: 0;
+  }
+  .site-nav .site-navigation .site-menu > li {
+    display: inline-block;
+  }
+  .site-nav .site-navigation .site-menu > li > a {
+  }
+  .site-nav .site-navigation .site-menu .has-children > a:before {
+    /* Pastikan panah dropdown tetap muncul jika diinginkan */
+    display: inline-block; /* Mengubah dari none agar panah muncul */
+  }
+}
+
+.post-entry:hover {
+  transform: scale(0.95); /* Zoom out effect on hover */
 }
